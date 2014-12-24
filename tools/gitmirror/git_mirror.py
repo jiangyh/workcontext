@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 import os
-import gerritlib.gerrit.Gerrit
+import gerritlib.gerrit
 def run_command(cmd, status=False, env=None):
     env = env or {}
     cmd_list = shlex.split(str(cmd))
@@ -24,12 +24,24 @@ def git_command(repo_dir, sub_cmd, env=None):
     status, _ = run_command(cmd, True, env)
     return status
 
-GERRIT_HOST="review.
+GERRIT_HOST="review.openstack.org"
+GERRIT_PORT='29418'
+GERRIT_USER="yunhong-jiang"
+GERRIT_KEY=None
+
 def get_proj_list():
     gerrit = gerritlib.gerrit.Gerrit(GERRIT_HOST,
-                                     GERRIT_USER,
-                                     GERRIT_PORT,
-                                     GERRIT_KEY)
+                                     GERRIT_USER)
+#                                     GERRIT_PORT,
+#                                     GERRIT_PORT,
+#                                     GERRIT_KEY)
     project_list = gerrit.listProjects()
 
+    return project_list
 
+def main():
+    projects = get_proj_list()
+    print projects
+
+if __name__ == "__main__":
+    main()
