@@ -1,0 +1,34 @@
+# Each machine has three cables connected, IPMI/LOCAL_NET/LAB_NET
+# Machines in labnetwork get IP address from HDCP server
+# Machines in officenetwork has fixed IP address
+
+Name    otccloud04
+IPMI_ADDR   192.168.110.134
+MAC_ADDR_START  00:1E:67:57:71:15
+MAC_ADDR_2ND    00:1E:67:57:71:16
+IN_LABNET   yes
+
+Name    otccloud05
+IPMI_ADDR   192.168.110.135
+MAC_ADDR_START  00:1E:67:57:6A:E7
+MAC_ADDR_2ND    00:1E:67:57:6A:E8
+IN_LABNET   yes
+
+Name    otccloud05
+IPMI_ADDR   192.168.110.135
+MAC_ADDR_START  00:1E:67:57:6A:E7
+MAC_ADDR_2ND    00:1E:67:57:6A:E8
+IN_LABNET   yes
+
+Name    otccloud07
+IPMI_ADDR   192.168.110.135
+MAC_ADDR_START  00:1E:67:57:50:4C
+MAC_ADDR_2ND    00:1E:67:57:50:4D
+IN_LABNET   yes
+
+Name    otccloud06
+FIXIP_ADDR  172.25.110.34
+MAC_ADDR_START  00:1e:67:4f:5f:67
+MAC_ADDR_2ND    00:1e:67:4f:5f:68
+IN_LABNET   no
+
