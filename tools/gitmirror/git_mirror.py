@@ -25,23 +25,26 @@ def git_command(repo_dir, sub_cmd, env=None):
     return status
 
 GERRIT_HOST="review.openstack.org"
-GERRIT_PORT='29418'
+GERRIT_PORT=29418
 GERRIT_USER="yunhong-jiang"
 GERRIT_KEY=None
 
+LOCAL_REP_TOP='/home/yjiang5/work/repo'
+
 def get_proj_list():
     gerrit = gerritlib.gerrit.Gerrit(GERRIT_HOST,
-                                     GERRIT_USER)
-#                                     GERRIT_PORT,
-#                                     GERRIT_PORT,
-#                                     GERRIT_KEY)
+                                     GERRIT_USER,
+                                     GERRIT_PORT,
+                                     GERRIT_KEY)
     project_list = gerrit.listProjects()
 
     return project_list
 
 def main():
     projects = get_proj_list()
-    print projects
+    for proj in projects:
+        (orig, projname) = proj.split('/')        
+
 
 if __name__ == "__main__":
     main()
