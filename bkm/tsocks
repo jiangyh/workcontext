@@ -1,5 +1,6 @@
 tsocks is a helpful tsock mechanism, and it's below is the conf file used:
 
+With tsocks, seems I don't need setup the proxy anymore.
 
 # This is the configuration for libtsocks (transparent socks)
 # Lines beginning with # and blank lines are ignored
