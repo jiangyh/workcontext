@@ -80,7 +80,9 @@ class UpdateThread(threading.Thread):
 def setup(gerrit):
     projects = get_proj_list(gerrit)
     repos = []
+    count = 0
     for proj in projects:
+        count = count+1
         lock = project_locks.get(proj, None)
         if not lock:
             lock = threading.Lock()
@@ -89,8 +91,8 @@ def setup(gerrit):
         repos.append((orig, projname))
 #        clone_project(orig, projname)
         update_project(proj)
-
-        time.sleep(5)
+        if not count % 5:
+            time.sleep(5)
     return repos
 
 
@@ -109,6 +111,7 @@ def main():
                                      GERRIT_PORT,
                                      GERRIT_KEY)
     setup(gerrit)
+    print "Finished setup"
     gerrit.startWatching()
     event=gerrit.getEvent()
     while event:
@@ -117,7 +120,10 @@ def main():
         except Queue.Empty:
             continue
 
-        if event.get("type") in ("change-merged"):
+        
+        if event.get("type") in ("comment-added"):
+            print "Get new comments"
+        elif event.get("type") in ("change-merged"):
         #if event.get("type") in ("change-merged", "comment-added"):
             changes = event.get("change")
             project = changes.get("project")
