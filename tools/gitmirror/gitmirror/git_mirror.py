@@ -96,13 +96,15 @@ def setup(gerrit):
     return repos
 
 
-def update_project(proj):
+def update_project(proj, delay=0):
     thread = UpdateThread(proj)
     lock = project_locks.get(proj)
     if not lock:
         print "No locks for proj %s" % proj
         return
     with lock:
+        if delay:
+            time.sleep(delay)
         thread.start()
 
 def main():
@@ -129,7 +131,7 @@ def main():
             project = changes.get("project")
             (orig, projname) = project.split("/")
             print "to update project %s with change %s event %s" % (project, changes, event.get("type"))
-            update_project(project)
+            update_project(project, 5)
 
 
 
