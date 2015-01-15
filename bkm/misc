@@ -1,0 +1,15 @@
+update-ca-certificates --fresh
+
+Error is:
+* Connected to proxy.sc.intel.com (10.1.192.48) port 1080 (#0)
+* successfully set certificate verify locations:
+*   CAfile: none
+  CApath: /etc/ssl/certs
+  * SSLv3, TLS handshake, Client hello (1):
+  * SSLv3, TLS handshake, Server hello (2):
+  * SSLv3, TLS handshake, CERT (11):
+  * SSLv3, TLS alert, Server hello (2):
+  * SSL certificate problem: unable to get local issuer certificate
+  * Closing connection 0
+  curl: (60) SSL certificate problem: unable to get local issuer certificate
+
