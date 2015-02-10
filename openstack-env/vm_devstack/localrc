@@ -21,3 +21,5 @@ SERVICE_PASSWORD=1
 
 disable_all_services
 ENABLED_SERVICES=n-cpu,n-net
+
+RECLONE=yes
