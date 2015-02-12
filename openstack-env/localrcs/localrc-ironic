@@ -1,0 +1,47 @@
+#ENABLE_HTTPD_MOD_WSGI_SERVICES=False
+#KEYSTONE_USE_MOD_WSGI=False
+LOGFILE=/home/yjiang5/tmp/devstacklog/log
+GIT_BASE=/home/yjiang5/GITMIRROR/
+RECLONE=yes
+
+enable_service ironic
+enable_service ir-api
+enable_service ir-cond
+
+disable_service n-net
+disable_service horizon
+enable_service q-svc
+enable_service q-agt
+enable_service q-dhcp
+#enable_service q-l3
+enable_service q-meta
+enable_service neutron
+
+IRONIC_BAREMETAL_BASIC_OPS=True
+VIRT_DRIVER=ironic
+
+NETWORK_GATEWAY=192.168.110.1
+FIXED_RANGE=192.168.110.0/24
+FIXED_NETWORK_SIZE=256
+
+IRONIC_IPMIINFO_FILE=/tmp/hwinfo
+
+IRONIC_HARDWARE=True
+Q_ML2_TENANT_NETWORK_TYPE=flat
+ENABLE_TENANT_TUNNELS=False
+PHYSICAL_NETWORK=physnet1
+OVS_PHYSICAL_BRIDGE=br-eth1
+Q_ML2_PLUGIN_TYPE_DRIVERS=flat
+Q_ML2_PLUGIN_MECHANISM_DRIVERS=openvswitch
+ENABLE_TENANT_VLANS=False
+Q_USE_PROVIDER_NETWORKING=True
+PUBLIC_INTERFACE=eth1
+FLAT_NETWORK_BRIDGE=br-eth1
+PROVIDER_NETWORK_TYPE=flat
+IRONIC_DEPLOY_DRIVER=pxe_ipmitool
+
+DATABASE_PASSWORD=1
+RABBIT_PASSWORD=1
+SERVICE_TOKEN=1
+SERVICE_PASSWORD=1
+ADMIN_PASSWORD=1
