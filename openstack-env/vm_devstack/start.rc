@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# stackrc
+#
+# Find the other rc files
+
+DEVSTACK_REPO="ssh://yjiang5@otccloud06.sc.intel.com:/home/yjiang5/work/openstack/devstack"
+DEVSTACK_BRANCH="lm"
+
+
