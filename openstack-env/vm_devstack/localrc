@@ -24,6 +24,6 @@ ENABLED_SERVICES=n-cpu,n-net
 
 RECLONE=yes
 NOVA_REPO=ssh://yjiang5@otccloud06.sc.intel.com:/home/yjiang5/test/nova
-NOVA_BRANCH=virt_cpu_model
+NOVA_BRANCH=cpuinfo
 FORCE_CONFIG_DRIVE=False
 LIBVIRT_LM_URI="qemu+tcp://%s/system"
