@@ -30,9 +30,9 @@ def main():
 	confirm = subprocess.check_output("grub2-editenv list", shell=True)
 	sconfirm = confirm.split('=')
 	if len(sconfirm)!= 2 or sconfirm[1].rstrip('\n') != entry:
-		print "Error to get saved entry with grub2-editenv"
-		print sconfirm
-		print entry
+		print "Error to setup the default "
+		print "Wanted %s" % entry
+		print "Got %s" % sconfirm
 	else:
 		print "We are done! The default entry is now"
 		print sconfirm[1]
