@@ -19,6 +19,9 @@ def main():
 		print "Wrong value, should be number between [%s~%s]" % (start_count, len(lists))
 		return
 
+	if item > len(lists) or item < start_count:
+		print "%s is invalid, it should be %s~%s, exit now!" % (item, start_count, len(lists))
+		return
 	entry = lists[item - 1]
 	cmd = "grub2-set-default \"%s\"" % entry
 	return_value=subprocess.call(cmd, shell=True)
